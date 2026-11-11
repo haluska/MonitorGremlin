@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a3470"/>
+      <stop offset="1" stop-color="#1c1330"/>
+    </linearGradient>
+    <radialGradient id="screen" cx="0.5" cy="0.45" r="0.7">
+      <stop offset="0" stop-color="#c8ff6a"/>
+      <stop offset="1" stop-color="#3a9c2a"/>
+    </radialGradient>
+    <linearGradient id="bezel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3a3a46"/>
+      <stop offset="1" stop-color="#22222b"/>
+    </linearGradient>
+    <linearGradient id="ear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#86b545"/>
+      <stop offset="1" stop-color="#557a2a"/>
+    </linearGradient>
+    <clipPath id="mouth">
+      <path d="M340 535 Q512 700 684 535 Q512 600 340 535 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background (standard macOS icon grid: 824pt rounded square) -->
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bg)"/>
+
+  <!-- Monitor art: content spans y 236-670, so move it down 59 to center it in the tile -->
+  <g transform="translate(0 59)">
+  <!-- Ears -->
+  <path d="M272 350 L120 236 Q138 470 272 540 Z" fill="url(#ear)"/>
+  <path d="M260 388 L172 300 Q186 440 260 498 Z" fill="#e48fa0"/>
+  <path d="M752 350 L904 236 Q886 470 752 540 Z" fill="url(#ear)"/>
+  <path d="M764 388 L852 300 Q838 440 764 498 Z" fill="#e48fa0"/>
+
+  <!-- Monitor -->
+  <rect x="250" y="290" width="524" height="380" rx="44" fill="url(#bezel)"/>
+  <rect x="284" y="324" width="456" height="312" rx="20" fill="url(#screen)"/>
+
+  <!-- Angry eyes with glowing pupils -->
+  <path d="M338 400 L490 462 Q474 528 404 524 Q344 516 338 400 Z" fill="#12261a"/>
+  <path d="M686 400 L534 462 Q550 528 620 524 Q680 516 686 400 Z" fill="#12261a"/>
+  <circle cx="428" cy="488" r="17" fill="#ffd93b"/>
+  <circle cx="596" cy="488" r="17" fill="#ffd93b"/>
+
+  <!-- Toothy grin -->
+  <path d="M340 535 Q512 700 684 535 Q512 600 340 535 Z" fill="#12261a"/>
+  <g clip-path="url(#mouth)">
+    <polygon points="320,500 320,548 352,590 384,548 416,590 448,548 480,590 512,548 544,590 576,548 608,590 640,548 672,590 704,548 705,500" fill="#f4f1e4"/>
+    <polygon points="330,660 352,640 388,606 424,640 460,606 496,640 532,606 568,640 604,606 640,640 676,606 694,660" fill="#f4f1e4"/>
+  </g>
+  </g>
+</svg>
