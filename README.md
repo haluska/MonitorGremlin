@@ -10,12 +10,17 @@ A disconnected monitor stays in the menu so you can connect it again, including 
 
 The menu also has a shortcut to Display Settings and a **Launch at Login** option.
 
-## Requirements
+## Download
 
-- macOS 14 (Sonoma) or later
-- Xcode 26 or later
+Requires macOS 14 (Sonoma) or later.
 
-## Build and run
+1. Download the zip from the [latest release](https://github.com/haluska/moniterrible/releases/latest) and unzip it.
+2. Drag Moniterrible to your Applications folder and open it.
+3. The build is not notarized, so macOS blocks the first launch. Open System Settings > Privacy & Security, scroll to Security, and click **Open Anyway**.
+
+## Build from source
+
+Requires Xcode 26 or later.
 
 1. Open `Moniterrible.xcodeproj` in Xcode.
 2. Press **Cmd-R** to run. The gremlin appears in the menu bar (there is no window or dock icon).
