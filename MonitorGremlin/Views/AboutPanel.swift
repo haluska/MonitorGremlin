@@ -1,6 +1,6 @@
 import AppKit
 
-/// The standard About window. The icon, name, version (MARKETING_VERSION) and
+/// The standard About window. The icon, version (MARKETING_VERSION) and
 /// copyright (INFOPLIST_KEY_NSHumanReadableCopyright) come from the build
 /// settings; only the credits text is set here.
 enum AboutPanel {
@@ -8,7 +8,11 @@ enum AboutPanel {
         // A menu bar app is never frontmost, so without this the window can
         // open behind other windows.
         NSApp.activate()
-        NSApp.orderFrontStandardAboutPanel(options: [.credits: credits])
+        NSApp.orderFrontStandardAboutPanel(options: [
+            // Defaults to CFBundleName, which has no space.
+            .applicationName: Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "Monitor Gremlin",
+            .credits: credits,
+        ])
     }
 
     private static var credits: NSAttributedString {

@@ -1,11 +1,15 @@
 import CoreGraphics
 import Foundation
 import Testing
-@testable import Moniterrible
+@testable import MonitorGremlin
 
 final class FakeDisplaySystem: DisplaySystem {
     /// Active monitors, ID to name.
     var active: [CGDirectDisplayID: String]
+    /// Disconnected monitors macOS still knows about, ID to name.
+    var hidden: [CGDirectDisplayID: String] = [:]
+    /// Defaults to a different identity for every known ID.
+    var identities: [CGDirectDisplayID: DisplayIdentity] = [:]
     var errorToThrow: Error?
 
     init(active: [CGDirectDisplayID: String]) {
@@ -16,13 +20,35 @@ final class FakeDisplaySystem: DisplaySystem {
         Array(active.keys)
     }
 
+    func allDisplayIDs() -> [CGDirectDisplayID] {
+        Array(active.keys) + Array(hidden.keys)
+    }
+
     func name(of displayID: CGDirectDisplayID) -> String? {
         active[displayID]
     }
 
+    func identity(of displayID: CGDirectDisplayID) -> DisplayIdentity? {
+        guard allDisplayIDs().contains(displayID) else { return nil }
+        return identities[displayID] ?? DisplayIdentity(vendor: 1, model: 1, serial: displayID)
+    }
+
     func setEnabled(_ enabled: Bool, displayID: CGDirectDisplayID) throws {
         if let errorToThrow { throw errorToThrow }
-        active[displayID] = enabled ? "Display \(displayID)" : nil
+        if enabled {
+            guard let name = hidden.removeValue(forKey: displayID) else {
+                throw DisplayError.failed(.failure)
+            }
+            active[displayID] = name
+        } else {
+            hidden[displayID] = active.removeValue(forKey: displayID)
+        }
+    }
+
+    /// What macOS does when it gives a disconnected monitor a new ID.
+    func changeHiddenID(from oldID: CGDirectDisplayID, to newID: CGDirectDisplayID) {
+        identities[newID] = identity(of: oldID)
+        hidden[newID] = hidden.removeValue(forKey: oldID)
     }
 }
 
@@ -86,26 +112,90 @@ struct DisplayServiceTests {
 
     @Test func forgetsADisplayThatCameBackByItself() throws {
         try service.setConnected(false, displayID: 2)
-        system.active[2] = "DELL S3221QS"
+        system.active[2] = system.hidden.removeValue(forKey: 2)
 
         #expect(service.currentDisplays() == [
             Display(id: 1, name: "Built-in Retina Display", isConnected: true),
             Display(id: 2, name: "DELL S3221QS", isConnected: true),
         ])
 
-        // Still gone from the remembered list after it drops out again.
+        // Still gone from the remembered list after it's unplugged.
         system.active[2] = nil
         #expect(service.currentDisplays().map(\.id) == [1])
     }
 
-    @Test func forgetsADisplayThatFailsToReconnect() throws {
+    @Test func keepsADisplayThatFailsToReconnectWhileStillPluggedIn() throws {
         try service.setConnected(false, displayID: 2)
-        system.errorToThrow = DisplayError.failed(.illegalArgument)
+        system.errorToThrow = DisplayError.failed(.failure)
+
+        #expect(throws: DisplayError.self) {
+            try service.setConnected(true, displayID: 2)
+        }
+        #expect(service.currentDisplays().contains(
+            Display(id: 2, name: "DELL S3221QS", isConnected: false)
+        ))
+    }
+
+    @Test func forgetsAnUnpluggedDisplayThatFailsToReconnect() throws {
+        try service.setConnected(false, displayID: 2)
+        system.hidden[2] = nil
 
         #expect(throws: DisplayError.self) {
             try service.setConnected(true, displayID: 2)
         }
         #expect(service.currentDisplays().map(\.id) == [1])
+    }
+
+    @Test func followsADisplayWhoseIDChangedWhileDisconnected() throws {
+        try service.setConnected(false, displayID: 2)
+        system.changeHiddenID(from: 2, to: 3)
+
+        #expect(service.currentDisplays() == [
+            Display(id: 1, name: "Built-in Retina Display", isConnected: true),
+            Display(id: 3, name: "DELL S3221QS", isConnected: false),
+        ])
+
+        try service.setConnected(true, displayID: 3)
+        #expect(service.currentDisplays() == [
+            Display(id: 1, name: "Built-in Retina Display", isConnected: true),
+            Display(id: 3, name: "DELL S3221QS", isConnected: true),
+        ])
+    }
+
+    @Test func reconnectsUnderTheNewIDWhenTheMenuIsOutOfDate() throws {
+        try service.setConnected(false, displayID: 2)
+        system.changeHiddenID(from: 2, to: 3)
+
+        try service.setConnected(true, displayID: 2)
+
+        #expect(system.active[3] == "DELL S3221QS")
+        #expect(service.currentDisplays().map(\.isConnected) == [true, true])
+    }
+
+    @Test func forgetsADisplayThatCameBackWithANewID() throws {
+        try service.setConnected(false, displayID: 2)
+        system.changeHiddenID(from: 2, to: 3)
+        system.active[3] = system.hidden.removeValue(forKey: 3)
+
+        #expect(service.currentDisplays() == [
+            Display(id: 1, name: "Built-in Retina Display", isConnected: true),
+            Display(id: 3, name: "DELL S3221QS", isConnected: true),
+        ])
+    }
+
+    @Test func ignoresHiddenDisplaysOfOtherModels() throws {
+        // Like the Touch Bar, which macOS lists as a hidden display.
+        system.hidden[3] = "Touch Bar"
+        try service.setConnected(false, displayID: 2)
+        system.hidden[2] = nil
+
+        #expect(service.currentDisplays().contains(
+            Display(id: 2, name: "DELL S3221QS", isConnected: false)
+        ))
+        #expect(throws: DisplayError.self) {
+            try service.setConnected(true, displayID: 2)
+        }
+        #expect(system.active[3] == nil)
     }
 
     @Test func aFailedDisconnectRemembersNothing() {
