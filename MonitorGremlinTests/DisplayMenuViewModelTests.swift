@@ -1,6 +1,6 @@
 import CoreGraphics
 import Testing
-@testable import Moniterrible
+@testable import MonitorGremlin
 
 /// Keeps the tests away from the real monitors.
 final class FakeDisplayService: DisplayControlling {

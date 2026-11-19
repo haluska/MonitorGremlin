@@ -37,11 +37,11 @@ struct DisplayMenu: View {
             set: { viewModel.setLaunchesAtLogin($0) }
         ))
 
-        Button("About Moniterrible") {
+        Button("About Monitor Gremlin") {
             AboutPanel.show()
         }
 
-        Button("Quit Moniterrible") {
+        Button("Quit Monitor Gremlin") {
             NSApplication.shared.terminate(nil)
         }
         .keyboardShortcut("q")

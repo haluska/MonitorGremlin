@@ -12,32 +12,32 @@
 			containerPortal = 67D92BED94FC65117FBFD471 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4DD7DFCC48438EEE05879BEC;
-			remoteInfo = Moniterrible;
+			remoteInfo = MonitorGremlin;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		54D6CBE4A4DB71D7C14B15E3 /* Moniterrible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moniterrible.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		87B09FBD548E4CC1843FF522 /* MoniterribleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoniterribleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		54D6CBE4A4DB71D7C14B15E3 /* MonitorGremlin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonitorGremlin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		87B09FBD548E4CC1843FF522 /* MonitorGremlinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonitorGremlinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		ADC50233BA97FC38447EDB0E /* MoniterribleTests */ = {
+		ADC50233BA97FC38447EDB0E /* MonitorGremlinTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			explicitFileTypes = {
 			};
 			explicitFolders = (
 			);
-			path = MoniterribleTests;
+			path = MonitorGremlinTests;
 			sourceTree = "<group>";
 		};
-		F0C4FA533E3553C7DC826525 /* Moniterrible */ = {
+		F0C4FA533E3553C7DC826525 /* MonitorGremlin */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			explicitFileTypes = {
 			};
 			explicitFolders = (
 			);
-			path = Moniterrible;
+			path = MonitorGremlin;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -46,8 +46,8 @@
 		0A8DEA81590D782161FD2852 = {
 			isa = PBXGroup;
 			children = (
-				F0C4FA533E3553C7DC826525 /* Moniterrible */,
-				ADC50233BA97FC38447EDB0E /* MoniterribleTests */,
+				F0C4FA533E3553C7DC826525 /* MonitorGremlin */,
+				ADC50233BA97FC38447EDB0E /* MonitorGremlinTests */,
 				28E5CB0AA45A73D78B00AB45 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,8 +55,8 @@
 		28E5CB0AA45A73D78B00AB45 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54D6CBE4A4DB71D7C14B15E3 /* Moniterrible.app */,
-				87B09FBD548E4CC1843FF522 /* MoniterribleTests.xctest */,
+				54D6CBE4A4DB71D7C14B15E3 /* MonitorGremlin.app */,
+				87B09FBD548E4CC1843FF522 /* MonitorGremlinTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,9 +64,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4DD7DFCC48438EEE05879BEC /* Moniterrible */ = {
+		4DD7DFCC48438EEE05879BEC /* MonitorGremlin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2F280E103B7ADCBBF3ABF4D2 /* Build configuration list for PBXNativeTarget "Moniterrible" */;
+			buildConfigurationList = 2F280E103B7ADCBBF3ABF4D2 /* Build configuration list for PBXNativeTarget "MonitorGremlin" */;
 			buildPhases = (
 				39824CE2D3E9E75D7C0AF904 /* Sources */,
 				49E3345BDEC5CA06ED9B92C1 /* Resources */,
@@ -76,18 +76,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				F0C4FA533E3553C7DC826525 /* Moniterrible */,
+				F0C4FA533E3553C7DC826525 /* MonitorGremlin */,
 			);
-			name = Moniterrible;
+			name = MonitorGremlin;
 			packageProductDependencies = (
 			);
-			productName = Moniterrible;
-			productReference = 54D6CBE4A4DB71D7C14B15E3 /* Moniterrible.app */;
+			productName = MonitorGremlin;
+			productReference = 54D6CBE4A4DB71D7C14B15E3 /* MonitorGremlin.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D16605AB8711081FEC202DAE /* MoniterribleTests */ = {
+		D16605AB8711081FEC202DAE /* MonitorGremlinTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 488AD40BC872FF14FC59C338 /* Build configuration list for PBXNativeTarget "MoniterribleTests" */;
+			buildConfigurationList = 488AD40BC872FF14FC59C338 /* Build configuration list for PBXNativeTarget "MonitorGremlinTests" */;
 			buildPhases = (
 				98A125147E2C043C45E446CE /* Sources */,
 				AB84D276F18D969C9A7CB17B /* Resources */,
@@ -98,13 +98,13 @@
 				0A65984B21350334CEF3B8DB /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				ADC50233BA97FC38447EDB0E /* MoniterribleTests */,
+				ADC50233BA97FC38447EDB0E /* MonitorGremlinTests */,
 			);
-			name = MoniterribleTests;
+			name = MonitorGremlinTests;
 			packageProductDependencies = (
 			);
-			productName = MoniterribleTests;
-			productReference = 87B09FBD548E4CC1843FF522 /* MoniterribleTests.xctest */;
+			productName = MonitorGremlinTests;
+			productReference = 87B09FBD548E4CC1843FF522 /* MonitorGremlinTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -124,7 +124,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8B5E209B5DA4FDD5E6040409 /* Build configuration list for PBXProject "Moniterrible" */;
+			buildConfigurationList = 8B5E209B5DA4FDD5E6040409 /* Build configuration list for PBXProject "MonitorGremlin" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -138,8 +138,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4DD7DFCC48438EEE05879BEC /* Moniterrible */,
-				D16605AB8711081FEC202DAE /* MoniterribleTests */,
+				4DD7DFCC48438EEE05879BEC /* MonitorGremlin */,
+				D16605AB8711081FEC202DAE /* MonitorGremlinTests */,
 			);
 		};
 /* End PBXProject section */
@@ -181,7 +181,7 @@
 /* Begin PBXTargetDependency section */
 		0A65984B21350334CEF3B8DB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4DD7DFCC48438EEE05879BEC /* Moniterrible */;
+			target = 4DD7DFCC48438EEE05879BEC /* MonitorGremlin */;
 			targetProxy = 77C27220813ED9253CE77432 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -200,9 +200,9 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.haluska.moniterrible.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haluska.monitorgremlin.tests;
 				SDKROOT = macosx;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Moniterrible.app/Contents/MacOS/Moniterrible";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonitorGremlin.app/Contents/MacOS/MonitorGremlin";
 			};
 			name = Debug;
 		};
@@ -216,7 +216,7 @@
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Moniterrible;
+				INFOPLIST_KEY_CFBundleDisplayName = "Monitor Gremlin";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Eric Haluska";
@@ -224,8 +224,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.haluska.moniterrible;
-				PRODUCT_NAME = Moniterrible;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haluska.monitorgremlin;
+				PRODUCT_NAME = MonitorGremlin;
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -243,9 +243,9 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.haluska.moniterrible.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haluska.monitorgremlin.tests;
 				SDKROOT = macosx;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Moniterrible.app/Contents/MacOS/Moniterrible";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MonitorGremlin.app/Contents/MacOS/MonitorGremlin";
 			};
 			name = Release;
 		};
@@ -259,7 +259,7 @@
 				ENABLE_APP_SANDBOX = NO;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = Moniterrible;
+				INFOPLIST_KEY_CFBundleDisplayName = "Monitor Gremlin";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 Eric Haluska";
@@ -267,8 +267,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.haluska.moniterrible;
-				PRODUCT_NAME = Moniterrible;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haluska.monitorgremlin;
+				PRODUCT_NAME = MonitorGremlin;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -403,7 +403,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2F280E103B7ADCBBF3ABF4D2 /* Build configuration list for PBXNativeTarget "Moniterrible" */ = {
+		2F280E103B7ADCBBF3ABF4D2 /* Build configuration list for PBXNativeTarget "MonitorGremlin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				543029ADFD065382279CFD8C /* Debug */,
@@ -412,7 +412,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		488AD40BC872FF14FC59C338 /* Build configuration list for PBXNativeTarget "MoniterribleTests" */ = {
+		488AD40BC872FF14FC59C338 /* Build configuration list for PBXNativeTarget "MonitorGremlinTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				17D8730E26182B4FFB5F03E5 /* Debug */,
@@ -421,7 +421,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		8B5E209B5DA4FDD5E6040409 /* Build configuration list for PBXProject "Moniterrible" */ = {
+		8B5E209B5DA4FDD5E6040409 /* Build configuration list for PBXProject "MonitorGremlin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B548D54AB8BCD6BD2B676E2F /* Debug */,
